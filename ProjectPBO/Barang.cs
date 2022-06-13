@@ -4,16 +4,21 @@ using System.Text;
 
 namespace ProjectPBO
 {
-    internal class Barang
+    public class Barang
     {
         public string nama;
+        public string jenis;
+        public DateTime lastUpdate;
+        public int id;
         public int harga;
-        public int stok;
-        public Barang(string namaBarang, int hargaBarang, int stokBarang)
+
+        public Barang(int idBarang, string namaBarang, int hargaBarang, string jenisBarang, DateTime lastUpdateBarang)
         {
             nama = namaBarang;
             harga = hargaBarang;
-            stok = stokBarang;
+            lastUpdate = lastUpdateBarang;
+            id = idBarang;
+            jenis = jenisBarang;
         }
     }
 }

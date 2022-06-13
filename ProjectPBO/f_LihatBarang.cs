@@ -20,43 +20,60 @@ namespace ProjectPBO
 
         private void f_LihatBarang_Load(object sender, EventArgs e)
         {
-            
-            dbConnection();
+            this.Shown += new EventHandler(f_LihatBarang_Shown);
+        }
+
+        private void f_LihatBarang_Shown(object sender, EventArgs e)
+        {
+            readData();
             DataTable data = ConvertToDatatable(listBarang);
             dataBarang.DataSource = data;
         }
 
-        public void dbConnection()
+        public void readData()
         {
-            // Initialize db connection
-            var db = new MySQLDB();
-            var arg = db.getArg();
-            var conn = new MySqlConnection(arg);
-            conn.Open();
-
-            // Get the barang data
-            var query = "SELECT * from barang";
-            using var cmd = new MySqlCommand(query, conn);
-            using MySqlDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            try
             {
-                listBarang.Add(new Barang(rdr.GetString(1), rdr.GetInt32(2), rdr.GetInt32(3)));
+                // Initialize db connection
+                var db = new MySQLDB();
+                var arg = db.getArg();
+                var conn = new MySqlConnection(arg);
+                conn.Open();
+
+                // Get the barang data
+                var query = "SELECT * from barang";
+                using var cmd = new MySqlCommand(query, conn);
+                using MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    listBarang.Add(new Barang(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2), rdr.GetString(3), rdr.GetDateTime(4)));
+                }
+                conn.Close();
             }
-            conn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         static DataTable ConvertToDatatable(List<Barang> list)
         {
             DataTable dt = new DataTable();
 
+            dt.Columns.Add("ID");
             dt.Columns.Add("Nama");
             dt.Columns.Add("Harga");
+            dt.Columns.Add("Jenis");
+            dt.Columns.Add("Last Update");
             foreach (var barang in list)
             {
                 var row = dt.NewRow();
 
+                row["ID"] = Convert.ToString(barang.id);
                 row["Nama"] = barang.nama;
                 row["Harga"] = Convert.ToString(barang.harga);
+                row["Jenis"] = barang.jenis;
+                row["Last Update"] = Convert.ToString(barang.lastUpdate);
 
                 dt.Rows.Add(row);
             }
@@ -64,7 +81,7 @@ namespace ProjectPBO
             return dt;
         }
 
-        private void btn_backLihatBarang_Click(object sender, EventArgs e)
+        private void btn_Back_Click(object sender, EventArgs e)
         {
             this.Hide();
             f_Barang barang = new f_Barang();

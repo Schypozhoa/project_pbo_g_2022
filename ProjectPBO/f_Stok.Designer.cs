@@ -60,7 +60,7 @@
             this.btn_EditStok.Text = "Edit Stok";
             this.btn_EditStok.UseVisualStyleBackColor = true;
             // 
-            // Stok
+            // f_Stok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,8 +68,8 @@
             this.Controls.Add(this.btn_EditStok);
             this.Controls.Add(this.btn_TambahStok);
             this.Controls.Add(this.btn_LihatStok);
-            this.Name = "Stok";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "f_Stok";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VESTO";
             this.ResumeLayout(false);
 

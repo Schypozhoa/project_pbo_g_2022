@@ -21,5 +21,26 @@ namespace ProjectPBO
             f_LihatBarang lihatBarang = new f_LihatBarang();
             lihatBarang.ShowDialog();
         }
+
+        private void btn_TambahBarang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_TambahBarang tambahBarang = new f_TambahBarang();
+            tambahBarang.ShowDialog();
+        }
+
+        private void btn_EditBarang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_EditBarang editBarang = new f_EditBarang();
+            editBarang.ShowDialog();
+        }
+
+        private void btn_HapusBarang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_HapusBarang hapusBarang = new f_HapusBarang();
+            hapusBarang.ShowDialog();
+        }
     }
 }
