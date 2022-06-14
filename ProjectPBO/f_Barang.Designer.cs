@@ -36,7 +36,7 @@
             // 
             // btn_EditBarang
             // 
-            this.btn_EditBarang.Location = new System.Drawing.Point(350, 243);
+            this.btn_EditBarang.Location = new System.Drawing.Point(325, 199);
             this.btn_EditBarang.Name = "btn_EditBarang";
             this.btn_EditBarang.Size = new System.Drawing.Size(100, 23);
             this.btn_EditBarang.TabIndex = 5;
@@ -46,7 +46,7 @@
             // 
             // btn_TambahBarang
             // 
-            this.btn_TambahBarang.Location = new System.Drawing.Point(350, 214);
+            this.btn_TambahBarang.Location = new System.Drawing.Point(325, 170);
             this.btn_TambahBarang.Name = "btn_TambahBarang";
             this.btn_TambahBarang.Size = new System.Drawing.Size(100, 23);
             this.btn_TambahBarang.TabIndex = 4;
@@ -56,7 +56,7 @@
             // 
             // btn_LihatBarang
             // 
-            this.btn_LihatBarang.Location = new System.Drawing.Point(350, 185);
+            this.btn_LihatBarang.Location = new System.Drawing.Point(325, 141);
             this.btn_LihatBarang.Name = "btn_LihatBarang";
             this.btn_LihatBarang.Size = new System.Drawing.Size(100, 23);
             this.btn_LihatBarang.TabIndex = 3;
@@ -66,7 +66,7 @@
             // 
             // btn_HapusBarang
             // 
-            this.btn_HapusBarang.Location = new System.Drawing.Point(350, 272);
+            this.btn_HapusBarang.Location = new System.Drawing.Point(325, 228);
             this.btn_HapusBarang.Name = "btn_HapusBarang";
             this.btn_HapusBarang.Size = new System.Drawing.Size(100, 23);
             this.btn_HapusBarang.TabIndex = 6;

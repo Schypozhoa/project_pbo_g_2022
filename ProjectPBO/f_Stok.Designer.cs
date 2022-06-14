@@ -41,6 +41,7 @@
             this.btn_LihatStok.TabIndex = 0;
             this.btn_LihatStok.Text = "Lihat Stok";
             this.btn_LihatStok.UseVisualStyleBackColor = true;
+            this.btn_LihatStok.Click += new System.EventHandler(this.btn_LihatStok_Click);
             // 
             // btn_TambahStok
             // 
@@ -50,6 +51,7 @@
             this.btn_TambahStok.TabIndex = 1;
             this.btn_TambahStok.Text = "Tambah Stok";
             this.btn_TambahStok.UseVisualStyleBackColor = true;
+            this.btn_TambahStok.Click += new System.EventHandler(this.btn_TambahStok_Click);
             // 
             // btn_EditStok
             // 
@@ -59,6 +61,7 @@
             this.btn_EditStok.TabIndex = 2;
             this.btn_EditStok.Text = "Edit Stok";
             this.btn_EditStok.UseVisualStyleBackColor = true;
+            this.btn_EditStok.Click += new System.EventHandler(this.btn_EditStok_Click);
             // 
             // f_Stok
             // 
