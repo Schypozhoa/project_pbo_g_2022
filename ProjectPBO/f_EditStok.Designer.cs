@@ -101,6 +101,7 @@
             this.Controls.Add(this.btn_UbahStok);
             this.Controls.Add(this.lb_stokBarang);
             this.Name = "f_EditStok";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VESTO";
             this.Load += new System.EventHandler(this.f_EditStok_Load);
             this.ResumeLayout(false);

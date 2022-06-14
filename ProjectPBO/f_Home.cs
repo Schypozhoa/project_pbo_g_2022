@@ -35,5 +35,12 @@ namespace ProjectPBO
             f_Barang barang = new f_Barang();
             barang.ShowDialog();
         }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
     }
 }

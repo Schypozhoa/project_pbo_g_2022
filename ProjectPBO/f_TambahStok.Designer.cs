@@ -101,6 +101,7 @@
             this.Controls.Add(this.cb_NamaBarang);
             this.Controls.Add(this.lb_stokBarang);
             this.Name = "f_TambahStok";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VESTO";
             this.Load += new System.EventHandler(this.f_TambahStok_Load);
             this.ResumeLayout(false);
