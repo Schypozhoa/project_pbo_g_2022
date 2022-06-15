@@ -25,10 +25,18 @@ namespace ProjectPBO
 
         private void btn_TambahBarang_Click(object sender, EventArgs e)
         {
+            btn_TambahBarang.Text = "Menambahkan...";
+            btn_TambahBarang.Enabled = false;
             var nama = tb_NamaBarang.Text;
             var harga = tb_HargaBarang.Text;
             var jenis = cb_JenisBarang.Text;
             addData(nama, harga, jenis);
+            tb_NamaBarang.Text = "";
+            tb_HargaBarang.Text = "";
+            cb_JenisBarang.ResetText();
+            cb_JenisBarang.SelectedIndex = -1;
+            btn_TambahBarang.Text = "Tambahkan";
+            btn_TambahBarang.Enabled = true;
         }
 
         public void addData(string nama, string harga, string jenis)
@@ -53,6 +61,39 @@ namespace ProjectPBO
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Home home = new f_Home();
+            home.ShowDialog();
+        }
+
+        private void btn_stok_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Stok stok = new f_Stok();
+            stok.ShowDialog();
+        }
+
+        private void btn_Barang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Barang barang = new f_Barang();
+            barang.ShowDialog();
+        }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

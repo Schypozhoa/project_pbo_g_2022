@@ -21,6 +21,26 @@ namespace ProjectPBO
         private void f_LihatBarang_Load(object sender, EventArgs e)
         {
             this.Shown += new EventHandler(f_LihatBarang_Shown);
+            styleDataGrid();
+        }
+
+        private void styleDataGrid()
+        {
+            dataBarang.BorderStyle = BorderStyle.None;
+            dataBarang.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataBarang.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataBarang.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+            dataBarang.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataBarang.BackgroundColor = Color.FromArgb(46, 51, 73);
+            dataBarang.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dataBarang.EnableHeadersVisualStyles = false;
+            dataBarang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataBarang.ColumnHeadersDefaultCellStyle.Font = new Font("Nirmala UI", 10);
+            dataBarang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(37, 37, 38);
+            dataBarang.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataBarang.AutoResizeColumns();
+            dataBarang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataBarang.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
         private void f_LihatBarang_Shown(object sender, EventArgs e)
@@ -86,6 +106,39 @@ namespace ProjectPBO
             this.Hide();
             f_Barang barang = new f_Barang();
             barang.ShowDialog();
+        }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Home home = new f_Home();
+            home.ShowDialog();
+        }
+
+        private void btn_stok_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Stok stok = new f_Stok();
+            stok.ShowDialog();
+        }
+
+        private void btn_Barang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Barang barang = new f_Barang();
+            barang.ShowDialog();
+        }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

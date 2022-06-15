@@ -42,5 +42,36 @@ namespace ProjectPBO
             f_HapusBarang hapusBarang = new f_HapusBarang();
             hapusBarang.ShowDialog();
         }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Home home = new f_Home();
+            home.ShowDialog();
+        }
+
+        private void btn_stok_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Stok stok = new f_Stok();
+            stok.ShowDialog();
+        }
+
+        private void btn_Barang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

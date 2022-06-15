@@ -109,5 +109,38 @@ namespace ProjectPBO
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Home home = new f_Home();
+            home.ShowDialog();
+        }
+
+        private void btn_Stok_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Stok stok = new f_Stok();
+            stok.ShowDialog();
+        }
+
+        private void btn_Barang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Barang barang = new f_Barang();
+            barang.ShowDialog();
+        }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

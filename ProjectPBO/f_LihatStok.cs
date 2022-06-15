@@ -20,6 +20,7 @@ namespace ProjectPBO
         private void f_LihatStok_Load(object sender, EventArgs e)
         {
             this.Shown += new EventHandler(f_LihatStok_Shown);
+            styleDataGrid();
         }
 
         private void f_LihatStok_Shown(object sender, EventArgs e)
@@ -27,6 +28,25 @@ namespace ProjectPBO
             readData();
             DataTable data = ConvertToDatatable(listStok);
             dataStok.DataSource = data;
+        }
+
+        private void styleDataGrid()
+        {
+            dataStok.BorderStyle = BorderStyle.None;
+            dataStok.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataStok.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataStok.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+            dataStok.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataStok.BackgroundColor = Color.FromArgb(46, 51, 73);
+            dataStok.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dataStok.EnableHeadersVisualStyles = false;
+            dataStok.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataStok.ColumnHeadersDefaultCellStyle.Font = new Font("Nirmala UI", 10);
+            dataStok.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(37, 37, 38);
+            dataStok.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataStok.AutoResizeColumns();
+            dataStok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataStok.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
         public void readData()
@@ -85,6 +105,39 @@ namespace ProjectPBO
             this.Hide();
             f_Stok stok = new f_Stok();
             stok.ShowDialog();
+        }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Home home = new f_Home();
+            home.ShowDialog();
+        }
+
+        private void btn_Stok_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Stok stok = new f_Stok();
+            stok.ShowDialog();
+        }
+
+        private void btn_Barang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Barang barang = new f_Barang();
+            barang.ShowDialog();
+        }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

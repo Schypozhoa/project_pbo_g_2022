@@ -25,6 +25,9 @@ namespace ProjectPBO
         {
             lb_HargaHolder.Text = "Rp.-";
             this.Shown += new EventHandler(f_TambahTrans_Shown);
+            styleDataGrid();
+            dataPembelian.Hide();
+            lb_ListBarang.Hide();
         }
 
         private void f_TambahTrans_Shown(object sender, EventArgs e)
@@ -89,13 +92,44 @@ namespace ProjectPBO
             }
         }
 
+        private void styleDataGrid()
+        {
+            dataPembelian.BorderStyle = BorderStyle.None;
+            dataPembelian.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataPembelian.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataPembelian.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+            dataPembelian.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataPembelian.BackgroundColor = Color.FromArgb(46, 51, 73);
+            dataPembelian.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dataPembelian.EnableHeadersVisualStyles = false;
+            dataPembelian.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataPembelian.ColumnHeadersDefaultCellStyle.Font = new Font("Nirmala UI", 10);
+            dataPembelian.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(37, 37, 38);
+            dataPembelian.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataPembelian.AutoResizeColumns();
+            dataPembelian.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataPembelian.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        }
+
         private void btn_TambahBarang_Click(object sender, EventArgs e)
         {
             var selected = cb_NamaBarang.SelectedIndex;
             var jumlah = Convert.ToInt32(tb_Jumlah.Text);
+            if (!lb_ListBarang.Visible)
+            {
+                dataPembelian.Show();
+                lb_ListBarang.Show();
+            }
 
             int idx = listStok.FindIndex(x => x.idbarang == listBarang[selected].id);
-            if (listStok[idx].stok >= jumlah)
+            if (idx == -1)
+            {
+                MessageBox.Show("Data belum memiliki stok persediaan");
+                tb_Jumlah.Text = "";
+                cb_NamaBarang.ResetText();
+                cb_NamaBarang.SelectedIndex = -1;
+            }
+            else if (listStok[idx].stok >= jumlah)
             {
                 listPembelian.Add(listBarang[selected]);
                 listJumlah.Add(jumlah);
@@ -148,6 +182,8 @@ namespace ProjectPBO
 
         private void btn_TambahTransaksi_Click(object sender, EventArgs e)
         {
+            btn_TambahTransaksi.Text = "Menyimpan...";
+            btn_TambahTransaksi.Enabled = false;
             string keterangan;
             if (tb_Keterangan.Text == "" || tb_Keterangan.Text == null)
             {
@@ -159,9 +195,12 @@ namespace ProjectPBO
             }
             var transID = addData(total, keterangan);
             addDataDetail(transID, listPembelian, listJumlah);
+            tb_Keterangan.Text = "";
             listPembelian.Clear();
             listJumlah.Clear();
             dataPembelian.DataSource = ConvertToDatatable(listPembelian, listJumlah);
+            btn_TambahTransaksi.Text = "Simpan Transaksi";
+            btn_TambahTransaksi.Enabled = true;
         }
 
         public int addData(int total, string keterangan)
@@ -214,6 +253,16 @@ namespace ProjectPBO
                         using var cmd = new MySqlCommand(query, conn);
                         using MySqlDataReader rdr = cmd.ExecuteReader();
                         conn.Close();
+
+                        conn.Open();
+                        int idx_stok = listStok.FindIndex(x => x.idbarang == barang.id);
+                        int new_stok = listStok[idx_stok].stok - l_jumlah[idx];
+                        var query2 = "UPDATE persediaan_barang " +
+                                "SET stok_tersedia = "+new_stok+ ", last_update =  current_timestamp()" +
+                                "WHERE id_persediaan = " + barang.id;
+                        using var cmd2 = new MySqlCommand(query2, conn);
+                        using MySqlDataReader rdr2 = cmd2.ExecuteReader();
+                        conn.Close();
                         idx++;
                     }
 
@@ -225,6 +274,39 @@ namespace ProjectPBO
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Home home = new f_Home();
+            home.ShowDialog();
+        }
+
+        private void btn_Stok_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Stok stok = new f_Stok();
+            stok.ShowDialog();
+        }
+
+        private void btn_Barang_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Barang barang = new f_Barang();
+            barang.ShowDialog();
+        }
+
+        private void btn_Transaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f_Transaksi transaksi = new f_Transaksi();
+            transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

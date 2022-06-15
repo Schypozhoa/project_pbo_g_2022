@@ -12,6 +12,7 @@ namespace ProjectPBO
 {
     public partial class f_Home : Form
     {
+
         public f_Home()
         {
             InitializeComponent();
@@ -41,6 +42,11 @@ namespace ProjectPBO
             this.Hide();
             f_Transaksi transaksi = new f_Transaksi();
             transaksi.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

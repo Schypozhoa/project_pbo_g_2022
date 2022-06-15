@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lb_LihatBarang = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f_LihatBarang));
             this.dataBarang = new System.Windows.Forms.DataGridView();
-            this.btn_Back = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_exit = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_Transaksi = new System.Windows.Forms.Button();
+            this.btn_stok = new System.Windows.Forms.Button();
+            this.btn_Barang = new System.Windows.Forms.Button();
+            this.btn_home = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataBarang)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lb_LihatBarang
-            // 
-            this.lb_LihatBarang.AutoSize = true;
-            this.lb_LihatBarang.Location = new System.Drawing.Point(353, 9);
-            this.lb_LihatBarang.Name = "lb_LihatBarang";
-            this.lb_LihatBarang.Size = new System.Drawing.Size(44, 15);
-            this.lb_LihatBarang.TabIndex = 0;
-            this.lb_LihatBarang.Text = "Barang";
             // 
             // dataBarang
             // 
@@ -49,49 +52,190 @@
             this.dataBarang.AllowUserToDeleteRows = false;
             this.dataBarang.AllowUserToResizeColumns = false;
             this.dataBarang.AllowUserToResizeRows = false;
+            this.dataBarang.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataBarang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataBarang.Location = new System.Drawing.Point(12, 43);
+            this.dataBarang.Location = new System.Drawing.Point(370, 91);
             this.dataBarang.MultiSelect = false;
             this.dataBarang.Name = "dataBarang";
             this.dataBarang.ReadOnly = true;
             this.dataBarang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataBarang.RowTemplate.Height = 25;
-            this.dataBarang.Size = new System.Drawing.Size(776, 312);
+            this.dataBarang.Size = new System.Drawing.Size(430, 463);
             this.dataBarang.TabIndex = 1;
             // 
-            // btn_Back
+            // label1
             // 
-            this.btn_Back.Location = new System.Drawing.Point(361, 405);
-            this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(75, 23);
-            this.btn_Back.TabIndex = 2;
-            this.btn_Back.Text = "Kembali";
-            this.btn_Back.UseVisualStyleBackColor = true;
-            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.label1.Location = new System.Drawing.Point(429, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(324, 62);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "LIST BARANG";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.btn_exit);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.btn_Transaksi);
+            this.panel1.Controls.Add(this.btn_stok);
+            this.panel1.Controls.Add(this.btn_Barang);
+            this.panel1.Controls.Add(this.btn_home);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(186, 577);
+            this.panel1.TabIndex = 12;
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_exit.FlatAppearance.BorderSize = 0;
+            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_exit.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_exit.Location = new System.Drawing.Point(0, 535);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(186, 42);
+            this.btn_exit.TabIndex = 6;
+            this.btn_exit.Text = "Keluar";
+            this.btn_exit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.panel3.Location = new System.Drawing.Point(0, 184);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(3, 42);
+            this.panel3.TabIndex = 5;
+            // 
+            // btn_Transaksi
+            // 
+            this.btn_Transaksi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Transaksi.FlatAppearance.BorderSize = 0;
+            this.btn_Transaksi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Transaksi.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Transaksi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Transaksi.Image = ((System.Drawing.Image)(resources.GetObject("btn_Transaksi.Image")));
+            this.btn_Transaksi.Location = new System.Drawing.Point(0, 270);
+            this.btn_Transaksi.Name = "btn_Transaksi";
+            this.btn_Transaksi.Size = new System.Drawing.Size(186, 42);
+            this.btn_Transaksi.TabIndex = 3;
+            this.btn_Transaksi.Text = "Transaksi";
+            this.btn_Transaksi.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Transaksi.UseVisualStyleBackColor = true;
+            this.btn_Transaksi.Click += new System.EventHandler(this.btn_Transaksi_Click);
+            // 
+            // btn_stok
+            // 
+            this.btn_stok.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_stok.FlatAppearance.BorderSize = 0;
+            this.btn_stok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stok.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_stok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_stok.Image = ((System.Drawing.Image)(resources.GetObject("btn_stok.Image")));
+            this.btn_stok.Location = new System.Drawing.Point(0, 228);
+            this.btn_stok.Name = "btn_stok";
+            this.btn_stok.Size = new System.Drawing.Size(186, 42);
+            this.btn_stok.TabIndex = 1;
+            this.btn_stok.Text = "Stok         ";
+            this.btn_stok.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_stok.UseVisualStyleBackColor = true;
+            this.btn_stok.Click += new System.EventHandler(this.btn_stok_Click);
+            // 
+            // btn_Barang
+            // 
+            this.btn_Barang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Barang.FlatAppearance.BorderSize = 0;
+            this.btn_Barang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Barang.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Barang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_Barang.Image = ((System.Drawing.Image)(resources.GetObject("btn_Barang.Image")));
+            this.btn_Barang.Location = new System.Drawing.Point(0, 186);
+            this.btn_Barang.Name = "btn_Barang";
+            this.btn_Barang.Size = new System.Drawing.Size(186, 42);
+            this.btn_Barang.TabIndex = 2;
+            this.btn_Barang.Text = "Barang      ";
+            this.btn_Barang.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Barang.UseVisualStyleBackColor = true;
+            this.btn_Barang.Click += new System.EventHandler(this.btn_Barang_Click);
+            // 
+            // btn_home
+            // 
+            this.btn_home.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_home.FlatAppearance.BorderSize = 0;
+            this.btn_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_home.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btn_home.Image = ((System.Drawing.Image)(resources.GetObject("btn_home.Image")));
+            this.btn_home.Location = new System.Drawing.Point(0, 144);
+            this.btn_home.Name = "btn_home";
+            this.btn_home.Size = new System.Drawing.Size(186, 42);
+            this.btn_home.TabIndex = 5;
+            this.btn_home.Text = "Home       ";
+            this.btn_home.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_home.UseVisualStyleBackColor = true;
+            this.btn_home.Click += new System.EventHandler(this.btn_home_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(186, 144);
+            this.panel2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(180, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // f_LihatBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_Back);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataBarang);
-            this.Controls.Add(this.lb_LihatBarang);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "f_LihatBarang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VESTO";
             this.Load += new System.EventHandler(this.f_LihatBarang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataBarang)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lb_LihatBarang;
         private System.Windows.Forms.DataGridView dataBarang;
-        private System.Windows.Forms.Button btn_Back;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btn_Transaksi;
+        private System.Windows.Forms.Button btn_stok;
+        private System.Windows.Forms.Button btn_Barang;
+        private System.Windows.Forms.Button btn_home;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
